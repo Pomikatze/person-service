@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="personservice.repository.ListRepository">
+
+    <resultMap id="listEntity" type="personservice.model.ListEntity" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <insert id="insertAll" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO list (product, count, number) VALUES
+        <foreach collection="listList" item="list" separator=",">
+            (#{list.product, jdbcType=bigint}, #{list.count, jdbcType=bigint},
+            #{list.number, jdbcType=bigint})
+        </foreach>
+    </insert>
+
+    <select id="getAll">
+        select * from list
+    </select>
+
+    <select id="getById">
+        select * from list where id = #{listId, jdbcType = BIGINT}
+    </select>
+
+    <select id="getIdByNumber">
+        select id from list where number = #{listNumber, jdbcType = BIGINT}
+    </select>
+</mapper>

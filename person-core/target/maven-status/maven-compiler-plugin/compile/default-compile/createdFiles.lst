@@ -1,0 +1,11 @@
+personservice\repository\ListRepository.class
+personservice\mapper\DeliveryRequestMapper.class
+personservice\controller\ListController.class
+personservice\model\DeliveryRequestEntity.class
+personservice\service\DeliveryRequestService.class
+personservice\mapper\CategoryMapper.class
+personservice\mapper\ListMapper.class
+personservice\controller\DeliveryRequestController.class
+personservice\repository\DeliveryRequestRepository.class
+personservice\controller\CategoryController.class
+personservice\service\ListService.class

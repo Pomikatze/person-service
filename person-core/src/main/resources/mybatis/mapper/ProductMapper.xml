@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="personservice.repository.ProductRepository">
+
+    <resultMap id="productEntity" type="personservice.model.ProductEntity" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <update id="updateById" parameterType="personservice.model.ProductEntity">
+        <if test="id != null">
+            UPDATE product SET
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="category != null">
+                category = #{category},
+            </if>
+            <if test="comment != null">
+                comment = #{comment},
+            </if>
+            WHERE id = #{id};
+        </if>
+    </update>
+</mapper>
